@@ -44,17 +44,20 @@ aws configure
 ## KUBECTL
 
 ```bash
-curl -o kubectl https://amazon-eks.s3.eu-west-3.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin
-kubectl version --short --client
+sudo su
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.29.3/2024-04-19/bin/linux/amd64/kubectl
+ll , $ chmod +x ./kubectl  //Gave executable permisions
+mv kubectl /bin   //Because all our executable files are in /bin
+kubectl version --output=yaml
 ```
 
 ## EKSCTL
 
 ```bash
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-sudo mv /tmp/eksctl /usr/local/bin
+cd /tmp
+ll
+sudo mv /tmp/eksctl /bin
 eksctl version
 ```
 
