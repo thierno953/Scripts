@@ -175,7 +175,7 @@ apiVersion: v1
 kind: Secret
 type: kubernetes.io/service-account-token
 metadata:
-  name: mysecretname
+  name: mysecret
   annotations:
     kubernetes.io/service-account.name: jenkins
 ```
