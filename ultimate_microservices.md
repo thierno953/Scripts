@@ -61,17 +61,17 @@ eksctl version
 ## Create EKS CLUSTER
 
 ```bash
-eksctl create cluster --name=Vikash-EKS \
+eksctl create cluster --name=Thierno-EKS \
                       --region=eu-west-3 \
                       --zones=eu-west-3a,eu-west-3b \
                       --without-nodegroup
 
 eksctl utils associate-iam-oidc-provider \
     --region eu-west-3 \
-    --cluster Vikash-EKS \
+    --cluster Thierno-EKS \
     --approve
 
-eksctl create nodegroup --cluster=Vikash-EKS \
+eksctl create nodegroup --cluster=Thierno-EKS \
                        --region=eu-west-3 \
                        --name=node2 \
                        --node-type=t3.medium \
@@ -165,6 +165,16 @@ subjects:
 - namespace: webapps 
   kind: ServiceAccount
   name: jenkins 
+```
+
+```bash
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/service-account-token
+metadata:
+  name: mysecretname
+  annotations:
+    kubernetes.io/service-account.name: jenkins
 ```
 
 ### Generate token using service account in the namespace
